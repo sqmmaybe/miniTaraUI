@@ -1,0 +1,12 @@
+{
+  "name": "@tara/build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:tara": "gulp -f script/gulpfile.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

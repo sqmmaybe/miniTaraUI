@@ -1,0 +1,23 @@
+{
+  "name": "tara-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module":"es/index.js",
+  "scripts": {
+    "build": "vite build & esno build/buildLess",
+    "build:less": "esno build/buildLess",
+    "build:tara": "gulp -f script/gulpfile.ts"
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "keywords": [
+    "tara-ui",
+    "vue3-component"
+  ],
+  "author": "hanqing.yang",
+  "license": "MIT",
+  "typings": "lib/index.d.ts"
+}
