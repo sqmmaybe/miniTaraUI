@@ -1,0 +1,1 @@
+"use strict";const r=require("./button.vue2.js"),e=require("vue"),s=require("../_virtual/_plugin-vue_export-helper.js");function n(t,u,l,c,p,a){return e.openBlock(),e.createElementBlock("button",{class:e.normalizeClass(["t-button",t.styleClass])},[e.renderSlot(t.$slots,"default")],2)}const o=s(r,[["render",n]]);module.exports=o;

@@ -1,4 +1,4 @@
-import button from './Button.vue';
+import button from './button.vue';
 import type { App, Plugin } from "vue";
 
 type SFCWithInstall<T> = T & Plugin;

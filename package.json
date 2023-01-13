@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:gulp": "cd packages/tara/build && npm run build:tara"
+    "build": "cd packages/tara/build && npm run build:tara"
   },
   "keywords": [],
   "author": "",

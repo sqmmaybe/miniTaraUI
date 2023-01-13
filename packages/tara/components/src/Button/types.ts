@@ -7,12 +7,18 @@ export const ButtonSize = ['large', 'normal', 'small', 'mini'];
 export const buttonProps = {
     type: {
         type: String,
-        values: ButtonType
+        validator(value: string) {
+            return ButtonType.includes(value)
+        }
     },
-
+    plain: Boolean,
+    round: Boolean,
+    disabled: Boolean,
     size: {
         type: String,
-        values: ButtonSize
+        Validator(value: string) {
+            return ButtonSize.includes(value);
+        }
     }
 }
 

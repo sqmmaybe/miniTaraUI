@@ -1,0 +1,1 @@
+"use strict";require("./style/index.css");const e=require("vue"),n=require("./types.js"),s=e.defineComponent({name:"t-button",props:n.buttonProps,setup(t){return{styleClass:e.computed(()=>({[`t-button--${t.type}`]:t.type,"is-plain":t.plain,"is-round":t.round,"is-disabled":t.disabled,[`t-button--${t.size}`]:t.size}))}}});module.exports=s;

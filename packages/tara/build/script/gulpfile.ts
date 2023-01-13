@@ -1,5 +1,5 @@
 import { spawn } from 'child_process';
-import { series, src, dest, task } from 'gulp';
+import { series, src, dest, parallel } from 'gulp';
 import { componentPath } from '../path';
 import less from "gulp-less";
 import autoprefixer from 'gulp-autoprefixer';
@@ -27,8 +27,22 @@ const buildStyle = () => {
     return src(`${componentPath}/src/**/style/**.less`)
     .pipe(less())
     .pipe(autoprefixer())
-    .pipe(dest(`${componentPath}/dist/lib/src`))
-    .pipe(dest(`${componentPath}/dist/es/src`));
-}
+    .pipe(dest(`${componentPath}/lib`))
+    .pipe(dest(`${componentPath}/es`));
+};
 
-export default series(async () => run(`rm -rf ${componentPath}/dist`), async () => buildStyle());
+const buildComponent = async () => {
+    await run(`cd ${componentPath}`)
+    run('pnpm run build')
+};
+
+export default series(
+    parallel(
+        async () => run(`rm -rf ${componentPath}/lib`), 
+        async () => run(`rm -rf ${componentPath}/es`), 
+    ),
+    parallel(
+        async () => buildStyle(),
+        async () => buildComponent()
+    )
+);

@@ -1,12 +1,11 @@
 {
   "name": "tara-ui",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "lib/index.js",
   "module":"es/index.js",
   "scripts": {
-    "build": "vite build & esno build/buildLess",
-    "build:less": "esno build/buildLess",
+    "build": "vite build",
     "build:tara": "gulp -f script/gulpfile.ts"
   },
   "files": [

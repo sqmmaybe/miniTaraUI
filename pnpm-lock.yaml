@@ -40,17 +40,17 @@ importers:
 
   packages/examples:
     specifiers:
-      tara-ui: workspace:^1.0.0
+      tara-ui: workspace:^1.0.2
     dependencies:
-      tara-ui: link:../packages/components
+      tara-ui: link:../tara/components
 
-  packages/packages/components:
-    specifiers:
-      '@tara-ui/utils': workspace:^1.0.0
-    dependencies:
-      '@tara-ui/utils': link:../utils
+  packages/tara/build:
+    specifiers: {}
 
-  packages/packages/utils:
+  packages/tara/components:
+    specifiers: {}
+
+  packages/tara/utils:
     specifiers: {}
 
 packages:

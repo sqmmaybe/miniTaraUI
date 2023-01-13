@@ -43,6 +43,15 @@ Vue3.0 + TypeScript + Vite + Monorepo + pnpm
 - cd /packages/examples
 
 
+# 项目启动
+pnpm i
+
+pnpm run build
+
+cd packages/examples && pnpm i tara-ui && pnpm run dev
+
+
+
 
 
 
