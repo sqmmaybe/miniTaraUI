@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cd packages/tara/build && npm run build:tara"
+    "setup": "pnpm run build && cd hosting && docker compose up -d",
+    "build": "cd packages/tara/build && npm run build:tara",
+    "docker:compose": "cd hosting && docker compose up -d"
   },
   "keywords": [],
   "author": "",

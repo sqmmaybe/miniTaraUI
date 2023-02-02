@@ -21,7 +21,7 @@ const run = (command: string) => {
         //执行完毕关闭并resolve
         app.on('close', resolve);
     })
-}
+};
 
 const buildStyle = () => {
     return src(`${componentPath}/src/**/style/**.less`)

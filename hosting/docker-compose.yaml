@@ -1,0 +1,40 @@
+version: '3'
+services:
+  # contain name
+  drone-server:
+    container_name: my-drone  # drone-server容器的name
+    image: drone/drone:2    # 依赖的镜像
+    ports:
+      - 4433:80   # 端口号(与你的github配置保持一致)
+    volumes:
+      - ./:/var/lib/drone/  
+      - ./data:/data/
+    # container start by docker
+    restart: always
+    privileged: true
+    environment:
+      - DRONE_GITHUB_SERVER=https://github.com # github的地址(可以是github也可以是gitlab/gitee/gitea)
+      - DRONE_GITHUB_CLIENT_ID=${DRONE_GITHUB_CLIENT_ID} # clientId: 与你github的settings中配置保持一致
+      - DRONE_GITHUB_CLIENT_SECRET=${DRONE_GITHUB_CLIENT_SECRET} # client secret: 密钥
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET} # 
+      - DRONE_SERVER_HOST=${DRONE_SERVER_HOST} # 主机名(本地开发使用本地的ip)
+      - DRONE_SERVER_PROTO=${DRONE_SERVER_PROTO} # 使用http
+      - DRONE_GIT_ALWAYS_AUTH=false 
+      - DRONE_USER_CREATE=user.name:James.Yang,admin:true
+    
+  drone-docker-runner:
+    container_name: my-drone-docker
+    image: drone/drone-runner-docker
+    restart: always
+    privileged: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DRONE_RPC_PROTO=http
+      - DRONE_RPC_HOST=192.168.2.40:4433
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+      - DRONE_RUNNER_NAME=docker-runner
+      - TZ=Asia/shanghai
+
+
+    
