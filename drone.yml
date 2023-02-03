@@ -1,1 +1,3 @@
-version: '3'
+kind: pipeline
+type: docker
+name: mini-tara-ui
